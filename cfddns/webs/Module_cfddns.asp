@@ -52,9 +52,9 @@
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr id="switch_tr">
-                                                                        <th> <label>开启 Cloudflare DDNS</label> </th>
+                                                                        <th>开启 Cloudflare DDNS</th>
                                                                         <td colspan="2">
-                                                                            <div class="switch_field" style="display:table-cell">
+                                                                            <div class="switch_field" style="display:table-cell;float: left;">
                                                                                 <label for="switch">
                                                                                     <input id="switch" class="switch" type="checkbox" style="display: none;" /> 
                                                                                     <div class="switch_container">
@@ -65,36 +65,37 @@
                                                                                     </div>
                                                                                 </label>
                                                                             </div>
-                                                                            <div id="koolproxy_install_show" style="padding-top:5px;margin-left:80px;margin-top:-30px;float: left;"></div>
+                                                                            <div id="cfddns_version_status" style="padding-top:5px;margin-left:230px;margin-top:0px;float:left;"><i>当前版本：1.1.0</i>
+                                                                            </div>
                                                                         </td>
                                                                     </tr>
                                                                     <tr id="last_act_tr">
-                                                                        <th>上次运行</th>
+                                                                        <th>上次运行记录</th>
                                                                         <td> <% dbus_get_def("cfddns_last_act", "--"); %> </td>
                                                                     </tr>
                                                                     <tr id="key_tr">
-                                                                        <th>API KEY</th>
-                                                                        <td> <input type="text" id="cfddns_key" value="<% dbus_get_def("cfddns_key", ""); %>" class="input_ss_table"></td>
+                                                                        <th>API Key</th>
+                                                                        <td> <input type="text" style="width: 70%" id="cfddns_key" value="<% dbus_get_def("cfddns_key", ""); %>" class="input_ss_table"></td>
                                                                     </tr>
                                                                     <tr id="email_tr">
                                                                         <th>User Email</th>
                                                                         <td><input type="text" id="cfddns_email" value="<% dbus_get_def("cfddns_email", ""); %>" class="input_ss_table"></td>
                                                                     </tr>
 																	<tr id="zone_tr">
-                                                                        <th>ZONE Name</th>
-                                                                        <td><input type="text" id="cfddns_zone" value="<% dbus_get_def("cfddns_zone", "example.com"); %>" class="input_ss_table"></td>
+                                                                        <th>Zone Name</th>
+                                                                        <td><input type="text" id="cfddns_zone" value="<% dbus_get_def("cfddns_zone", "XXX.com"); %>" class="input_ss_table"></td>
                                                                     </tr>
                                                                     <tr id="domain_tr">
-																		<th>A记录域名</th>
-																		<td><input type="text" id="cfddns_domain" value="<% dbus_get_def("cfddns_domain", "www.example.com"); %>" class="input_ss_table"></td>
+																		<th title="A记录：YYY，则填写YYY.XXX.com；A记录：@，则填写XXX.com">域名A记录(?)</th>
+																		<td><input type="text" id="cfddns_domain" value="<% dbus_get_def("cfddns_domain", "YYY.XXX.com/XXX.com"); %>" class="input_ss_table"></td>
 																	</tr>
                                                                     <tr id="curl_tr">
-                                                                        <th title="可自行修改命令行，以获得正确的公网IP。">获得IP命令(?)</th>
+                                                                        <th title="可自行修改，以获得正确的公网IP">获得IP命令(?)</th>
                                                                         <td><textarea id="cfddns_curl" class="input_ss_table" style="width: 94%; height: 2.4em"><% dbus_get_def("cfddns_curl", "curl -s whatismyip.akamai.com"); %></textarea></td>
                                                                     </tr>
                                                                     <tr id="ttl_tr">
-                                                                        <th title="设置解析TTL，免费版的范围是1-86400，设置1表示自动">TTL(?)</th>
-                                                                        <td><input id="cfddns_ttl" style="width: 4.5em" class="input_ss_table"value="<% dbus_get_def("cfddns_ttl", "1"); %>">s (1~86400)</td>
+                                                                        <th title="TTL must be between 120 and 2147483647 seconds, or 1 for automatic">TTL(?)</th>
+                                                                        <td><input id="cfddns_ttl" style="width: 4.5em" class="input_ss_table"value="<% dbus_get_def("cfddns_ttl", "1"); %>">s (1 or >=120)</td>
                                                                     </tr>
 																	<tr id="interval_tr">
                                                                         <th>检查周期</th>
@@ -104,16 +105,6 @@
                                                             </table>
                                                             <div class="apply_gen"> 
                                                                 <input class="button_gen" type="button" value="提交" /> 
-                                                            </div>
-                                                            <div style="margin-left:5px;margin-top:10px;margin-bottom:10px">
-                                                                <img src="/images/New_ui/export/line_export.png" />
-                                                            </div>
-                                                            <div class="KoolshareBottom" style="margin-top:540px;">
-                                                                论坛技术支持： 
-                                                                <a href="http://www.koolshare.cn" target="_blank"> <i><u>www.koolshare.cn</u></i> </a><br/> 
-                                                                Github项目： 
-                                                                <a href="https://github.com/koolshare/koolshare.github.io/tree/acelan_softcenter_ui" target="_blank"> <i><u>github.com/koolshare</u></i> </a><br />  
-                                                                Shell by： <i>kyrios</i> , Web by： <i>kyrios</i> 
                                                             </div>
                                                         </td>
                                                     </tr>

@@ -1,14 +1,11 @@
 #!/bin/sh
 
-cp -r /tmp/cfddns/res/* /koolshare/res
-cp -r /tmp/cfddns/scripts/* /koolshare/scripts
-cp -r /tmp/cfddns/webs/* /koolshare/webs
+cp -r /tmp/cfddns/* /koolshare/
+chmod a+x /koolshare/scripts/cfddns_*
 
-chmod 644 /koolshare/webs/Module_cfddns.asp
-chmod 666 /koolshare/res/icon-cfddns.png
-chmod 755 /koolshare/scripts/cfddns_*
+rm -rf /koolshare/install.sh
 
 # add icon into softerware center
 dbus set softcenter_module_cfddns_install=1
-dbus set softcenter_module_cfddns_version=1.0.0
+dbus set softcenter_module_cfddns_version=1.1.0
 dbus set softcenter_module_cfddns_description="Cloudflare DDNS"
